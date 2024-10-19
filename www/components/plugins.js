@@ -38,9 +38,9 @@ saveToPhotoAlbum: true
 
  });
 
-function onSuccess(imageURI) {
+function onSuccess(imagemURI) {
     var image = document.getElementById('myimage');
-    image.src = imageURI;
+    image.src = imagemURI;
 }
 
 function onFail(message) {
