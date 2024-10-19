@@ -1,5 +1,5 @@
 // This is a JavaScript file
-$(document).on("click","#alerta",function(){
+$(document).on("click","#alerta", function(){
     function retorno(){
     }
     navigator.notification.alert("minha menssagem", retorno, "Aviso!", "Aceito");
@@ -17,7 +17,7 @@ $(document).on("click","#confirm",function(){
 });
 $(document).on("click","#beep",function()
 {
-     navigator.notification.beep(4);
+     navigator.notification.beep(1);
 }
 );
 $(document).on("click","#vibracao",function()
@@ -25,6 +25,26 @@ $(document).on("click","#vibracao",function()
     document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady()
  {
-    console.log(navigator.vibrate([3000]));
+    console.log(navigator.vibrate([8000]));
  }
+});
+
+$(document).on("click", "#camera",function(){
+
+navigator.camera.getPicture(onSuccess, onFail, {quality:50, 
+destinationType: Camera.DestinationType.FILE_URI,
+correctOrientation: true,
+saveToPhotoAlbum: true
+
+ });
+
+function onSuccess(imageURI) {
+    var image = document.getElementById('myimage');
+    image.src = imageURI;
+}
+
+function onFail(message) {
+
+    alert('Failed because: ' + message);
+}
 });
